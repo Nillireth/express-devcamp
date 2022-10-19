@@ -22,7 +22,7 @@ const app = express()
 
 //rutas de proyecto
 app.use('/api/v1/bootcamps', bootcampRoutes)
-app.use('/api/v2/courses', courseRoutes)
+app.use('/api/v1/courses', courseRoutes)
 
 //endpoint de aplicación
 app.get('/', (request, response) => {
