@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2a9b60c7-55a3-4e51-9019-413d780e0162",
+		"_postman_id": "22af9b00-0a3c-4be0-a227-baf0e7178f5f",
 		"name": "express-devcamp",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -168,7 +168,17 @@
 					"name": "Crear course",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    { \r\n        \"title\": \"express\",\r\n        \"description\": \"Bootcamp for express learning\",\r\n        \"weeks\": 4,\r\n        \"enroll_cost\": 4000,\r\n        \"minimun_skill\": \"Hola\",\r\n        \"bootcamp_id\": 1\r\n    }"
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/v1/courses",
 							"protocol": "http",
@@ -189,9 +199,19 @@
 					"name": "Actualizar course",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    { \r\n        \"title\": \".NET\",\r\n        \"description\": \"Bootcamp for .NET learning\",\r\n        \"weeks\": 4,\r\n        \"enroll_cost\": 4000,\r\n        \"minimun_skill\": \"asas\"\r\n    }"
+						},
 						"url": {
-							"raw": "http://localhost:5000/api/v1/courses/1",
+							"raw": "http://localhost:5000/api/v1/courses/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -201,7 +221,7 @@
 								"api",
 								"v1",
 								"courses",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -213,7 +233,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/courses/1",
+							"raw": "http://localhost:5000/api/v1/courses/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -223,7 +243,7 @@
 								"api",
 								"v1",
 								"courses",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -257,9 +277,16 @@
 				},
 				{
 					"name": "Traer user por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/v1/users/3",
 							"protocol": "http",
@@ -290,7 +317,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"Juan\",\r\n    \"email\" : \"juan@gmail.com\",\r\n    \"password\" : \"12345\"\r\n\r\n}"
+							"raw": "{\r\n    \"username\" : \"\",\r\n    \"email\" : \"juan@gmail.com\",\r\n    \"password\" : \"12345\"\r\n\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:5000/api/v1/users",
@@ -357,6 +384,153 @@
 								"v1",
 								"users",
 								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reviews",
+			"item": [
+				{
+					"name": "Traer todos los reviews",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/review",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer review por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/review/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"review",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear reviews",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"title\": \" EXPRESS\",\r\n            \"text\": \"Bootcamp for .EXPRESS learning\",\r\n            \"rating\": 8,\r\n            \"bootcamp_id\": 1,\r\n            \"user_id\": 1\r\n        }"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/review",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar reviews",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n\r\n            \"rating\": 7\r\n        }\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/review/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"review",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar reviews",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/review/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"review",
+								"4"
 							]
 						}
 					},
